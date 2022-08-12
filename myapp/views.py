@@ -1,12 +1,3 @@
-"""
-Submitted By:
-Anvi Parikh 110030925
-Ravi Teja Polina 110070069
-Nishant Upadhyay: 110059612
-Venkata Vijaya Sri Vaishnav Vadrevu 110068649
-
-""" 
-
 # Import necessary classes
 # Import necessary classes
 from curses.ascii import HT
@@ -23,6 +14,7 @@ from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from datetime import datetime
 from django.contrib.auth.models import Group
+from django.conf import settings 
 
 def index(request):
     top_list = Topic.objects.all().order_by('id')[:10]
@@ -193,10 +185,10 @@ def forgotPassword(request):
         user.set_password(password)
         user.save()
         send_mail(
-            "New Password", #subject
-            password, #message
-            'test@gmail.com', #from
-            [email], #to
+            subject="New Password", #subject
+            message=password, #message
+            from_email=settings.EMAIL_HOST_USER, #from
+            recipient_list=[email], #to
         )
         return HttpResponse("We have emailed you a new password")
     else:

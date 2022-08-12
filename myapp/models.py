@@ -71,7 +71,3 @@ class Order(models.Model):
         for course in self.course:
             sum += course.price
         return sum
-
-
-
-

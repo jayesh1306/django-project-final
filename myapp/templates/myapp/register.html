@@ -3,9 +3,20 @@
     Place Order
 {% endblock %}
 {% block body_block %}
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Register" />
-</form>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-9 m-auto">
+            <div class="card p-5 m-3">
+                <div class="card-title"> Register Form</div>
+                <form action="" method="post" class="form">
+                    {% csrf_token %}
+                    {{ form }}
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary" value="Register" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

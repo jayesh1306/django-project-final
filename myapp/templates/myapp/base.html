@@ -9,7 +9,7 @@
  <body>
      <div>
          {% if user.is_authenticated %}
-                <span><a style="float:right; text-decoration: none; color:red; " href="{% url 'myapp:logout' %}">Logout</a>
+                <span><a style="float:right; text-decoration: none ; " class="btn btn-error" href="{% url 'myapp:logout' %}">Logout</a>
             </span>
          {% else %}
          <span class="navbar">

@@ -1,30 +1,32 @@
 <!DOCTYPE html>
+{% extends 'myapp/base.html' %}
 {% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="{% static 'myapp/style.css' %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static 'myapp/bootstrap.css' %}"/>
-    
-    <title>login</title>
-</head>
-<body>
-    <form method="post" class="form">
-        {% csrf_token%}
-        <div class="form-group">
-            <label>Username:</label>
-            <input type="text" class="form-control" name="username">
-        </p>
-        <p>
-            <label>Password:</label>
-            <input type="password" name="password" class="form-control">
-        </p>
-        <p>
-            <input class="btn btn-error" type="submit" value="Login">
-        </p>
-        <p>
-            <a href="{% url 'myapp:forgotPassword' %}">Forgot Password</a>
-        </p>
-    </form>
-</body>
-</html>
+    {% block body_block %}
+    <div class="row">
+        <div class="col-md-8 m-auto">
+            <div class="card p-5">
+                <div class="card-title"> Login Form</div>
+                <hr>
+                <form method="post" class="form">
+
+                    {% csrf_token%}
+                    <div class="form-group">
+                        <label>Username:</label>
+                        <input type="text" class="form-control" name="username">
+                    </p>
+                    <div class="form-group">
+                        <label>Password:</label>
+                        <input type="password" name="password" class="form-control">
+                    </p>
+                    <div class="form-group">
+                        <input class="btn btn-success" type="submit" value="Login">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <a class="btn btn-info" href="{% url 'myapp:forgotPassword' %}">Forgot Password ?</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endblock %}

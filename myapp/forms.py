@@ -19,10 +19,10 @@ class OrderForm(forms.ModelForm):
         }
 
 class RegisterForm(forms.Form):
-    UserName = forms.CharField(label='UserName')
-    Password = forms.CharField(label="Password")
-    FirstName = forms.CharField(label="FirstName")
-    LastName = forms.CharField(label="LastName")
-    Email = forms.CharField(label="Email")
+    UserName = forms.CharField(label='UserName', widget=forms.TextInput(attrs={'class' :'form-control' }))
+    Password = forms.CharField(label="Password", widget=forms.TextInput(attrs={'class' :'form-control' }))
+    FirstName = forms.CharField(label="FirstName", widget=forms.TextInput(attrs={'class' :'form-control' }))
+    LastName = forms.CharField(label="LastName", widget=forms.TextInput(attrs={'class' :'form-control' }))
+    Email = forms.CharField(label="Email", widget=forms.TextInput(attrs={'class' :'form-control' }))
     CHOICES = [(1, 'YES'), (0, 'NO')]
-    IsStudent = forms.CharField(label='Are you a Student?', widget=forms.RadioSelect(choices=CHOICES))
+    IsStudent = forms.CharField(label='Are you a Student?', widget=forms.RadioSelect(choices=CHOICES, attrs={'class':'custom-control-input'}), )
