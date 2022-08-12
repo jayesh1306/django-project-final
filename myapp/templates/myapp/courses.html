@@ -1,0 +1,8 @@
+{% extends 'myapp/base.html' %}
+{% block body_block %}
+    {% for course in courlist %}
+    <a href = "{% url 'myapp:coursedetail' course.id %}">{{ course.name }}</a>
+        <br/>
+    {% endfor %}
+    <li><a href = "{% url 'myapp:place_order' %}">Place Order</a></li>
+{% endblock %}

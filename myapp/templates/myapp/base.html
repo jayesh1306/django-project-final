@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+    <link rel="stylesheet" type="text/css" href="{% static 'myapp/style.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'myapp/bootstrap.css' %}"/>
+    <title>E-Learning WebApp - {% block title %}Welcome!{% endblock %}</title>
+ </head>
+ <body>
+     <div>
+         {% if user.is_authenticated %}
+                <span><a style="float:right; text-decoration: none; color:red; " href="{% url 'myapp:logout' %}">Logout</a>
+            </span>
+         {% else %}
+         <span class="navbar">
+            <span class="btn btn-success m-2"><a style="float:right; text-decoration: none; color:white; " href="{% url 'myapp:login' %}">Login</a>
+            </span>
+            <span class="btn btn-success m-2"><a style="float:right; text-decoration: none; color:white; " href="{% url 'myapp:register' %}">Register</a>
+            </span>
+        </span>
+         {% endif %}
+        <br/>
+        <div class="p-2 m-4">
+            <h1>{% block myhdg %}Hello {{ user }} {% endblock %}
+        </div>
+         </h1>
+
+         {% block body_block %}*** {% endblock %}
+     </div>
+     <hr>
+       <div class="pt-5 mt-5  ">
+        <ul class="list-group-flush">
+            <li class="list-group-item list-group-item-success"><a style="text-decoration:none" href="{% url 'myapp:about' %}">Find out about our ELearning site</a></li>
+            <li class="list-group-item list-group-item-success"><a style="text-decoration:none"  href = "{% url 'myapp:index' %}">Click here to
+           return to main page</a></li>
+            <li class="list-group-item list-group-item-success"><a style="text-decoration:none"  href = "{% url 'myapp:courses' %}">List of all courses</a></li>
+        </ul>
+    </div>
+ </body>
+</html>

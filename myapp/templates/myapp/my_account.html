@@ -1,0 +1,29 @@
+{% extends 'myapp/base.html' %}
+{% block title %}
+    My Account
+{% endblock %}
+{% block body_block %}
+    <h2> Full Name : {{ first_name }} {{ last_name }}</h2>
+    {% if orders %}
+        <h3>Orders</h3>
+        <ul>
+            {% for order in orders %}
+                <li>{{ order.course }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h2>You don't have any orders</h2>
+    {% endif %}
+    {% if topics %}
+        <h3>Interested In</h3>
+        <ul>
+            {% for topic in topics %}
+                <li>{{ topic.interested_in__name }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h2>You don't have any Interests</h2>
+    {% endif %}
+
+    <br/>
+{% endblock %}

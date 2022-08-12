@@ -1,0 +1,13 @@
+{% extends 'myapp/base.html' %}
+{% block title %}
+    Details
+{% endblock %}
+{% block body_block %}
+<ul class="list-group p-3">
+    <h2 class="bg-light">{{  top_courses }}</h2>
+    <hr/>
+    {% for course in courses %}
+        <li class="list-group-item list-group-item-primary p-2 ">    Course Name: {{ course.name }} </li>
+    {% endfor %}
+</ul>
+{% endblock %}
